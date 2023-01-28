@@ -1,0 +1,2 @@
+module GroceryCategoriesHelper
+end

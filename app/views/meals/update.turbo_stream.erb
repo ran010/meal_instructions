@@ -1,0 +1,5 @@
+<%= turbo_stream.remove @meal %>
+<%= turbo_stream.prepend "meals" do %>
+  <%= render @meal %>
+<% end %>
+<%= turbo_stream.prepend(:flash, partial: "shared/flash", locals: {notice: "Meal was successfully updated."}) %>

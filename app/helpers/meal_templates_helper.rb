@@ -1,0 +1,2 @@
+module MealTemplatesHelper
+end

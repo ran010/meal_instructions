@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recipies</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body>
+  <body class="h-full font-sans antialiased font-normal leading-normal bg-white">
+    <div
+      class="flex min-h-full relative"
+      data-controller="slideover"
+      data-slideover-open-value="false"
+      data-slideover-invisible-class="-translate-x-full,opacity-0"
+      data-slideover-visible-class="translate-x-0,opacity-100"
+      data-slideover-entering-class=""
+      data-slideover-enter-timeout="300,300"
+      data-slideover-leaving-class=""
+      data-slideover-leave-timeout="300,0"
+      data-slideover-active-target="#slideover-target"
+    >
+      <%= render partial: "shared/sidebar" %>
+
+      <div class="flex w-0 flex-1 flex-col lg:pl-64">
+        <%= render partial: "shared/main_navbar" %>
+
+        <main class="flex-1 px-8">
+          <%= turbo_frame_tag "flash" do %>
+            <%= render partial: "shared/flash" %>
+          <% end %>
+          <%= yield %>
+        </main>
+      </div>
+    </div>
+
+    <ninja-keys data-controller="command-palette" hideBreadcrumbs></ninja-keys>
+  </body>
+  </body>
+</html>

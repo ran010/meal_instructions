@@ -1,0 +1,13 @@
+<div class="space-y-1">
+  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-700 hover:text-gray-900 hover:bg-gray-50" -->
+  <a href="<%= user_root_path %>" class="<%= current_controller?("dashboards") ? "bg-gray-200 text-gray-900" : "text-gray-700" %> hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-base font-medium rounded-md" aria-current="page">
+    <%= render_svg "icons/home", styles: "icon-sm #{current_controller?("dashboards") ? "fill-gray-700" : "fill-gray-400"} group-hover:text-gray-500 mr-4 flex-shrink-0 h-6 w-6" %>
+    Dashboard
+  </a>
+
+  <a href="<%= meals_path %>" class="<%= current_controller?("meals") ? "bg-gray-200 text-gray-900" : "text-gray-700" %> hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+    <%= render_svg "icons/meal-checklist", styles: "icon-sm #{current_controller?("meals") ? "text-gray-700" : "text-gray-400"} group-hover:text-gray-500 mr-4 flex-shrink-0 h-6 w-6" %>
+    Meal Plans
+  </a>
+
+</div>

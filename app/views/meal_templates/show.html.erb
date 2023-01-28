@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @meal_template %>
+
+<div>
+  <%= link_to "Edit this meal template", edit_meal_template_path(@meal_template) %> |
+  <%= link_to "Back to meal templates", meal_templates_path %>
+
+  <%= button_to "Destroy this meal template", @meal_template, method: :delete %>
+</div>
