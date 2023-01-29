@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_105444) do
 
   create_table "ingredient_templates", force: :cascade do |t|
     t.string "quantity", null: false
-    t.string "unit_type", null: false
+    t.string "unit_type"
     t.text "notes"
     t.bigint "meal_template_id", null: false
     t.bigint "grocery_id", null: false

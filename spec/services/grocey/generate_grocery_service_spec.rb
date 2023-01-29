@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Grocery::CreateWorkflow do
+RSpec.describe Grocery::GenerateGroceryService do
   let(:barcode) { "123456789" }
   let(:title) { "Milk" }
   let(:image_data) { "image.com" }

@@ -28,7 +28,7 @@ class GroceriesController < ApplicationController
 
   # POST /groceries or /groceries.json
   def create
-    @grocery = Grocery::CreateWorkflow.call(grocery_params)
+    @grocery = Grocery::GenerateGroceryService.call(grocery_params)
 
     respond_to do |format|
       if @grocery.save

@@ -1,4 +1,4 @@
-class Grocery::CreateWorkflow < ApplicationWorkflow
+class Grocery::GenerateGroceryService < ApplicationService
   attr_reader :params
 
   def initialize(params)
