@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   authenticated :user do
     root to: "dashboard#show", as: :user_root
     resources :groceries
+    resources :commands
     resources :meal_templates, only: [:show] do
       resources :favorite_meal_templates, only: [:create, :destroy]
 

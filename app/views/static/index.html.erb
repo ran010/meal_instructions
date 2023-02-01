@@ -1,3 +1,41 @@
 <div class="py-32 max-w-2xl m-auto text-center flex flex-col items-center justify-center">
-  <h1 class="mb-2">Welcome </h1>
+  <h1 class="mb-2">Welcome</h1>
 </div>
+
+<% if current_user.present? %>
+<div class=" text-center flex flex-col items-center justify-center hidden">
+ <div class="form-group msg-form">
+  <%= form_with(model: [@command], remote: true, class:'d-flex',
+    data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset"}, 
+    id: "command-form") do |f| %>
+    <div id="attachment-previews" 
+      class="d-none"
+      data-controller="command"
+      data-action="command#preview"
+      >
+    </div>
+   
+   <div class="image-upload flex">
+    <div>
+      <label for="command_attachments" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        <i class=""></i>
+      </label>
+      <%= f.file_field(:attachments, multiple: true, class: 'block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400',
+        data: { controller: "command", action:"change->command#preview"}, direct_upload: true) %>
+       </div>
+
+      <%= content_tag(:i, nil, id: 'audio-record-button') do %>
+       <%= render_svg "icons/mic", styles: "w-6 h-6 text-primary" %>
+      <% end %>
+    </div>
+    <%= f.submit "Send",
+      data: {disable_with: false, 
+      controller: "command", 
+      action:"click->command#clearPreviews"}, 
+      class: 'btn btn-primary' %>
+  </div>
+<% end %>
+</div>
+
+
+<% end %>
