@@ -73,7 +73,7 @@
       <h4 class="mb-4">Ingredients:</h4>
       <%= tag.ul id: "ingredients", class: "mr-4 divide-y divide-gray-200 overflow-hidden bg-white shadow sm:rounded-md", style: "list-style-type: none;" do %>
         <%= turbo_frame_tag 'ingredients' do %>
-          <%= render @ingredients %>
+          <%= render(IngredientComponent.with_collection(@ingredients, meal: @meal)) %>
         <% end %>
       <% end %>
     </div>

@@ -1,0 +1,11 @@
+<div  id="<%= dom_id(@meal_template, :favorite_meal_template) %>">
+  <% if favorite_meal_template.present? %>
+    <%= link_to meal_template_favorite_meal_template_path(@meal_template, favorite_meal_template), data: { turbo_method: :delete }, class: " text-primary hover:text-blue-700" do %>
+      <%= render_svg "icons/heart-outline", styles: "w-6 h-6 fill-blue-700 text-primary" %>
+    <% end %>
+  <% else %>
+    <%= link_to meal_template_favorite_meal_templates_path(@meal_template), data: { turbo_method: :post }, class: " text-gray-400 hover:text-gray-500" do %>
+      <%= render_svg "icons/heart-outline", styles: "w-6 h-6 fill-white text-gray-400" %>
+    <% end %>
+  <% end %>
+</div>

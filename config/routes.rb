@@ -7,10 +7,7 @@ Rails.application.routes.draw do
     root to: "dashboard#show", as: :user_root
     resources :groceries
     resources :meal_templates, only: [:show] do
-      member do
-        post :add_to_favorite
-        post :remove_from_favorite
-      end
+      resources :favorite_meal_templates, only: [:create, :destroy]
 
       collection do
         get :search
@@ -22,7 +19,7 @@ Rails.application.routes.draw do
         get :load_templates
         post :create_from_template
       end
-      resources :ingredients
+      resources :ingredients, only: [:create, :destroy, :update]
     end
     get "/groceries_search", to: "groceries#search", as: :search_groceries
   end

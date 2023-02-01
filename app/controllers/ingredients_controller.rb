@@ -26,6 +26,7 @@ class IngredientsController < ApplicationController
     @ingredient = @meal.ingredients.new(ingredient_params)
 
     respond_to do |format|
+      debugger
       if @ingredient.save
         format.html { redirect_to [@meal, @ingredient], notice: "Ingredient was successfully created." }
         format.json { render :show, status: :created, location: [@meal, @ingredient] }

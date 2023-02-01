@@ -34,7 +34,7 @@ class Meals::CreateFromTemplateWorkflow < ApplicationWorkflow
 
   def create_instructions 
     meal_template.instruction_template_steps.each do |instruction|
-      meal.instruction_steps.create!(ingredient.attributes.slice("description","full_description", "position"))
+      meal.instruction_steps.create!(instruction.attributes.slice("description","full_description", "position"))
     end
   end
 end

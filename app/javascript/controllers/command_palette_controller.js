@@ -4,7 +4,6 @@ import "@gorails/ninja-keys"
 // Connects to data-controller="command-palette"
 export default class extends Controller {
   connect() {
-    console.log("asdfasd")
     this.element.data = [
       {
         id: "Home",

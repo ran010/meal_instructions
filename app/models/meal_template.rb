@@ -19,9 +19,5 @@ class MealTemplate < ApplicationRecord
 
     where("name ILIKE ?", "%#{query}%")
   end
-
-  def is_user_favorite?(user)
-    favorite_meal_templates.where(user: user).any?
-  end
 end
 

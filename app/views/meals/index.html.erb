@@ -20,7 +20,7 @@
     <% if @meals.present? %>
       <%= tag.ul id: ("meals" if first_page?), role: "list", style: "list-style-type: none;" do %>
         <%= turbo_frame_tag "meals", class: "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4" do %>
-          <%= render @meals %>
+         <%= render(MealComponent.with_collection(@meals)) %>
         <% end %>
       <% end %>
 

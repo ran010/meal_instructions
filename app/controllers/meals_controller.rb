@@ -19,7 +19,6 @@ class MealsController < ApplicationController
 
   def create_from_template
     @meal = Meals::CreateFromTemplateWorkflow.call(meal_template_id: params[:meal_template_id], user: current_user)
-
     respond_to do |format|
       if @meal.errors.blank?
         format.html { redirect_to @meal, notice: "Meal was successfully created." }

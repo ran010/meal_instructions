@@ -4,4 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          has_many :meals, dependent: :destroy
+  has_many :favorite_meal_templates
+  
+  def favorite_meal_template(id) 
+    favorite_meal_templates.find_by(meal_template: id) 
+  end
 end
