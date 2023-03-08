@@ -11,3 +11,12 @@ development:
 test:
   <<: *default
   database: meal_test
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: meal_production
+  username: postgres
+  password: postgres
+  host: localhost
+  port: 5432
